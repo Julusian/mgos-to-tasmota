@@ -11,6 +11,9 @@ sources:             [src]
 filesystem:          [fs]
 tags:                [c, tuya, tasmota, mongoose]
 
+cflags:
+  - "-Wno-error"
+
 # Custom configuration
 config_schema:
   #### sys ####
@@ -88,7 +91,7 @@ conds:
         MGOS_ROOT_FS_TYPE: SPIFFS
   - when: build_vars.MODEL == "ShellyRGBW2"
     apply:
-      name: rgbw2
+      name: rgbw2-color
       build_vars:
         FS_SIZE: 262144
         FLASH_SIZE: 2097152
